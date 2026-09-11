@@ -1,0 +1,2 @@
+# Physics Graph Generator for engineering
+A simple web app for plotting physics lab experiment data and generating clean, exam-ready graphs.  ## Features - Presets for common physics practicals: Ohm's Law, Convex Lens, Prism, Meter Bridge, Sonometer, Diode Characteristics, Photoelectric Effect, and more - Automatic best-fit line with slope, intercept, and R² calculation - Customizable axis labels, units, and graph title - Scatter, connected-line, or best-fit graph styles - Download graphs as PNG or PDF  Built with Python, Streamlit, NumPy, and Matplotlib.
