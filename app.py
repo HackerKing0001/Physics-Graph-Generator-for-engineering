@@ -10,6 +10,13 @@ st.set_page_config(
     layout="wide"
 )
 
+# Google Search Console ownership verification.
+# Replace YOUR_CODE_HERE below with the "content" value Google gives you
+# under Search Console -> Add website -> Other verification methods -> HTML tag.
+st.markdown(
+    '<meta name="google-site-verification" content="e4ceOcApPdH1Bqi8CXRf_FzyNcEJIaYRglnhaP0SJN8" />',
+    unsafe_allow_html=True
+)
 st.title("🔬 Physics Lab Graph Generator")
 st.caption("Enter your experimental readings and generate a clean lab graph with automatic best-fit analysis.")
 
