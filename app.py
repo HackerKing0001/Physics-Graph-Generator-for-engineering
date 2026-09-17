@@ -76,14 +76,25 @@ def calculate_fit(x, y):
 
 
 def compute_axis_limits(x, y):
+    # NOTE: this no longer forces 0 into the visible range.
+    # Zooming tightly around the actual data (whatever its scale —
+    # decimals, fractions converted to decimals, large or small numbers)
+    # is what keeps the points centered instead of crushed into a corner.
     x_min, x_max = float(np.min(x)), float(np.max(x))
     y_min, y_max = float(np.min(y)), float(np.max(y))
-    x_pad = (x_max - x_min) * 0.15 or 1.0
-    y_pad = (y_max - y_min) * 0.15 or 1.0
-    x_lo = min(x_min - x_pad, 0)
-    x_hi = max(x_max + x_pad, 0)
-    y_lo = min(y_min - y_pad, 0)
-    y_hi = max(y_max + y_pad, 0)
+
+    x_range = x_max - x_min
+    y_range = y_max - y_min
+
+    # if all x (or all y) values are identical, fall back to a small
+    # padding based on the value itself so the point isn't glued to an edge
+    x_pad = x_range * 0.15 if x_range != 0 else (abs(x_max) * 0.1 or 1.0)
+    y_pad = y_range * 0.15 if y_range != 0 else (abs(y_max) * 0.1 or 1.0)
+
+    x_lo = x_min - x_pad
+    x_hi = x_max + x_pad
+    y_lo = y_min - y_pad
+    y_hi = y_max + y_pad
     return x_lo, x_hi, y_lo, y_hi
 
 
@@ -91,8 +102,14 @@ def draw_common(ax, x, y, title, xlabel, ylabel, grid_enabled, point_labels):
     x_lo, x_hi, y_lo, y_hi = compute_axis_limits(x, y)
     ax.set_xlim(x_lo, x_hi)
     ax.set_ylim(y_lo, y_hi)
-    ax.axhline(0, color="black", linewidth=1)
-    ax.axvline(0, color="black", linewidth=1)
+
+    # only draw the x=0 / y=0 reference lines if zero actually falls
+    # inside the current view — otherwise they get skipped instead of
+    # forcing zero into the frame
+    if x_lo <= 0 <= x_hi:
+        ax.axvline(0, color="black", linewidth=1)
+    if y_lo <= 0 <= y_hi:
+        ax.axhline(0, color="black", linewidth=1)
 
     if point_labels:
         for i, (xx, yy) in enumerate(zip(x, y), start=1):
