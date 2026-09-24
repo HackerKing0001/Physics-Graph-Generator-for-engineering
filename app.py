@@ -35,6 +35,8 @@ PRESETS = {
     "Newton's Rings (d vs x)": {"x_label": "Distance (x)", "x_unit": "cm", "y_label": "Diameter (d)", "y_unit": "cm", "title": "d vs x"},
     "Photoelectric Effect (K vs f)": {"x_label": "Frequency (f)", "x_unit": "Hz", "y_label": "Kinetic Energy (K)", "y_unit": "eV", "title": "Photoelectric Effect: K vs f"},
     "Stewart & Gee (y vs B²)": {"x_label": "B²", "x_unit": "T²", "y_label": "y", "y_unit": "m", "title": "y vs B²"},
+    "Malus's Law (I vs cos²θ)": {"x_label": "cos²θ", "x_unit": "", "y_label": "Intensity (I)", "y_unit": "mA", "title": "Malus's Law: Intensity vs cos²θ"},
+    "Malus's Law (I vs θ)": {"x_label": "Angle (θ)", "x_unit": "°", "y_label": "Intensity (I)", "y_unit": "mA", "title": "Malus's Law: Intensity vs θ"},
 }
 
 QUADRANT_OPTIONS = {
@@ -177,6 +179,13 @@ with st.sidebar:
     graph_type = st.selectbox("Graph style", ["Scatter + best-fit line", "Scatter only", "Connected points"])
     grid_enabled = st.checkbox("Show grid", True)
     point_labels = st.checkbox("Number data points", False)
+
+    if preset == "Malus's Law (I vs θ)":
+        st.warning(
+            "I vs θ is not a straight line (I ∝ cos²θ). "
+            "Use 'Scatter only' or 'Connected points' instead of the best-fit line here — "
+            "for a linear check of Malus's Law, use the 'I vs cos²θ' preset instead."
+        )
 
     st.divider()
     st.info(
