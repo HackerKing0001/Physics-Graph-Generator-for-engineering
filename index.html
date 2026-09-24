@@ -3,15 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Physics Lab Graph Generator</title>
-  <meta name="description" content="A free web app to generate lab-quality graphs from physics experiment readings, with automatic best-fit line, slope, intercept, and R² analysis. Presets for Ohm's Law, Diode V-I Characteristics, Photoelectric Effect, and more." />
 
-  <!-- Google Search Console verification tag: replace YOUR_CODE_HERE with the content value Google gives you -->
-  <meta name="google-site-verification" content="Ov6cjBE1nxX1snGHsNu0DitZAFsV3UXW2QVhkKbs3Wo" />"
+  <title>Physics Lab Graph Generator</title>
+
+  <meta
+    name="description"
+    content="Physics Lab Graph Generator — generate clean, exam-ready graphs from physics experiment readings with automatic best-fit line, slope, intercept, and R² analysis."
+  />
+
+  <!-- Google Search Console Verification -->
+  <meta
+    name="google-site-verification"
+    content="Ov6cjBE1nxX1snGHsNu0DitZAFsV3UXW2QVhkKbs3Wo"
+  />
 
   <style>
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Arial, sans-serif;
       background: #0e1117;
       color: #fafafa;
       display: flex;
@@ -22,22 +31,27 @@
       margin: 0;
       padding: 24px;
       text-align: center;
+      box-sizing: border-box;
     }
+
     h1 {
       font-size: 2.2rem;
       margin-bottom: 8px;
     }
+
     p {
       max-width: 600px;
       color: #c9c9c9;
       line-height: 1.6;
     }
+
     ul {
       text-align: left;
       max-width: 500px;
       color: #c9c9c9;
       line-height: 1.8;
     }
+
     a.button {
       display: inline-block;
       margin-top: 24px;
@@ -48,33 +62,57 @@
       border-radius: 8px;
       font-weight: 600;
       font-size: 1.1rem;
-      transition: background 0.2s;
+      transition: background 0.2s ease;
     }
+
     a.button:hover {
       background: #e03e3e;
     }
+
     .emoji {
       font-size: 3rem;
     }
+
+    .footer {
+      margin-top: 35px;
+      font-size: 0.85rem;
+      color: #777;
+    }
   </style>
 </head>
+
 <body>
+
   <div class="emoji">🔬</div>
+
   <h1>Physics Lab Graph Generator</h1>
+
   <p>
-    Enter your experimental readings and instantly generate a clean, exam-ready
-    lab graph with automatic best-fit line, slope, intercept, and R² analysis.
+    Enter your experimental readings and instantly generate a clean,
+    exam-ready lab graph with automatic best-fit line, slope, intercept,
+    and R² analysis.
   </p>
 
   <ul>
-    <li>Presets for Ohm's Law, Convex Lens, Prism, Meter Bridge, Sonometer</li>
+    <li>Presets for Ohm's Law, Convex Lens, Prism, Meter Bridge, and Sonometer</li>
     <li>Diode Forward/Reverse V-I Characteristics</li>
-    <li>Photoelectric Effect, Thermionic Emission, Newton's Rings, and more</li>
+    <li>Photoelectric Effect and Thermionic Emission</li>
+    <li>Newton's Rings and other physics experiments</li>
     <li>Download graphs as PNG or PDF</li>
   </ul>
 
-  <a class="button" href="https://physics-graph-generator-for-engineering-rudranshtech01.streamlit.app/" target="_blank" rel="noopener">
-    Open the App →
+  <a
+    class="button"
+    href="https://physics-graph-generator-for-engineering-rudranshtech01.streamlit.app/"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Open Physics Graph Generator →
   </a>
+
+  <div class="footer">
+    © 2026 Physics Lab Graph Generator
+  </div>
+
 </body>
 </html>
